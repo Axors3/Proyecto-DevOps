@@ -1,11 +1,18 @@
-import {createPool} from 'mariadb'
+import { Sequelize } from "sequelize";
 
-export const db = createPool({
+const conn = new Sequelize('telefoniadb','root','',{
     host:'localhost',
-    user:'root',
-    password:'',
-    port:3306,
-    database:'telefoniadb'
+    dialect:'mariadb'
+
 })
 
+const checkConection = async() =>{
+    try {
+        await conn.authenticate();
+        console.log('conneccion success');
+    } catch (error) {
+        console.log('unable to connect', error);
+    }
+}
 
+export default conn
