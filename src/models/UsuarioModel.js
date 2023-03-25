@@ -1,4 +1,4 @@
-import conn from '../db/db.js';
+import {conn} from '../db/db.js';
 import { DataTypes } from 'sequelize';
 
 const Usuario = conn.define('Usuario',{
@@ -12,6 +12,7 @@ const Usuario = conn.define('Usuario',{
     username:{
         type: DataTypes.STRING(10),
         allowNull:false,
+        unique:true
     },
     email:{
         type: DataTypes.STRING(50),

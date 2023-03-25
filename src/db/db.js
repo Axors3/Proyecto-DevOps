@@ -1,12 +1,12 @@
 import { Sequelize } from "sequelize";
 
-const conn = new Sequelize('telefoniadb','root','',{
+export const conn = new Sequelize('telefoniadb','root','',{
     host:'localhost',
     dialect:'mariadb'
 
 })
 
-const checkConection = async() =>{
+export const doConnection = async() =>{
     try {
         await conn.authenticate();
         console.log('conneccion success');
@@ -15,4 +15,3 @@ const checkConection = async() =>{
     }
 }
 
-export default conn
