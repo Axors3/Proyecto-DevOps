@@ -1,7 +1,7 @@
 import conn from '../db/db.js';
 import { DataTypes } from 'sequelize';
 
-const Vendedor = conn.define('Vendedor', {
+const Plan = conn.define('Plan', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -12,23 +12,22 @@ const Vendedor = conn.define('Vendedor', {
     type: DataTypes.STRING(30),
     allowNull: true
   },
-  email: {
-    type: DataTypes.STRING(30),
-    allowNull: true
-  },
-  num_ventas: {
+  costo: {
     type: DataTypes.INTEGER,
     allowNull: true
   },
-  hora_entrada: {
-    type: DataTypes.TIME,
+  duracion: {
+    type: DataTypes.STRING(30),
     allowNull: true
   },
-  hora_salida: {
-    type: DataTypes.TIME,
+  redes_gratuitas: {
+    type: DataTypes.STRING(30),
+    allowNull: true
+  },
+  datos: {
+    type: DataTypes.INTEGER,
     allowNull: true
   }
-  
 });
 
-export default Vendedor
+export default Plan
