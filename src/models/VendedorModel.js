@@ -1,4 +1,4 @@
-import conn from '../db/db.js';
+import {conn} from '../db/db.js';
 import { DataTypes } from 'sequelize';
 
 const Vendedor = conn.define('Vendedor', {
