@@ -1,4 +1,4 @@
-import conn from '../db.js';
+import conn from '../db/db.js';
 import { DataTypes } from 'sequelize';
 
 const Vendedor = conn.define('Vendedor', {
@@ -28,8 +28,7 @@ const Vendedor = conn.define('Vendedor', {
     type: DataTypes.TIME,
     allowNull: true
   }
-
-
+  
 });
 
 export default Vendedor
