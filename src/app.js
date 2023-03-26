@@ -5,7 +5,7 @@ const app = express();
 //settings
 const PORT = 3000;
 
-
+app.use(express.json());
 //routes
 app.use('/uadyfon/api',uadyfonApi );
 

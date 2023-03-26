@@ -6,12 +6,12 @@ plan.get('/',(req,resp) =>{
     resp.status(200).json({message:"dentro de plan"})
 })
 
-plan.get('/planes/:id',(req,res) => res.send("Obteniendo planes"))
+plan.post('/',(req,resp) => resp.send("Actualizando "))
 
-plan.post('/planes',(req,res) => res.send("Actualizando planes"))
+plan.get('/:id',(req,resp) => resp.send("Obteniendo "))
 
-plan.put('/planes',(req,res) => res.send("Poniendo planes"))
+plan.put('/:id',(req,resp) => resp.send("Poniendo "))
 
-plan.delete('/planes',(req,res) => res.send("Borrando planes"))
+plan.delete('/:id',(req,resp) => resp.send("Borrando "))
 
 export default plan

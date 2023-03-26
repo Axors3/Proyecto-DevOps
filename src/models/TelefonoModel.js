@@ -24,7 +24,7 @@ const Telefono = conn.define('Telefono',{
     ram_gb:{
         type:DataTypes.INTEGER,
     },
-    alamacenamiento_gb:{
+    almacenamiento_gb:{
         type: DataTypes.INTEGER,
     }
 });

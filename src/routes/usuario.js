@@ -6,12 +6,12 @@ usuario.get('/',(req,resp) =>{
     resp.status(200).json({message:"dentro de usuario"})
 })
 
-usuario.get('/usuarios/:id',(req,res) => res.send("Obteniendo usuarios"))
+usuario.post('/',(req,resp) => resp.send("Actualizando"))
 
-usuario.post('/usuarios',(req,res) => res.send("Actualizando usuarios"))
+usuario.get('/:id',(req,resp) => resp.send("Obteniendo"))
 
-usuario.put('/usuarios',(req,res) => res.send("Poniendo usuarios"))
+usuario.put('/:id',(req,resp) => resp.send("Poniendo"))
 
-usuario.delete('/usuarios',(req,res) => res.send("Borrando usuarios"))
+usuario.delete('/:id',(req,resp) => resp.send("Borrando"))
 
 export default usuario
