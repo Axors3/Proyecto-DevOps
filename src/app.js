@@ -1,17 +1,16 @@
 import express from 'express';
-import {doConnection} from './db/db.js'
-
+import {doConnection} from './db/db.js';
+import uadyfonApi from './routes/api/index.js';
 const app = express();
-
 //settings
-app.set('port',process.env.PORT || 9000);
+const PORT = 3000;
+
 
 //routes
+app.use('/uadyfon/api',uadyfonApi );
 
-//middlewares
-
-app.listen(app.get('port'),async () => {
-    console.log('Server on port 3000');
+app.listen(PORT,async () => {
+    console.log(`Server on port ${PORT}`);
     await doConnection();
 })
 
