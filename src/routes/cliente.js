@@ -6,12 +6,12 @@ cliente.get('/',(req,resp) =>{
     resp.status(200).json({message:"dentro de cliente"})
 })
 
-cliente.get('/clientes/:id',(req,res) => res.send("Obteniendo clientes"))
+cliente.post('/',(req,resp) => resp.send("Actualizando "))
 
-cliente.post('/clientes',(req,res) => res.send("Actualizando clientes"))
+cliente.get('/:id',(req,resp) => resp.send("Obteniendo "))
 
-cliente.put('/clientes',(req,res) => res.send("Poniendo clientes"))
+cliente.put('/:id',(req,resp) => resp.send("Poniendo "))
 
-cliente.delete('/clientes',(req,res) => res.send("Borrando clientes"))
+cliente.delete('/:id',(req,resp) => resp.send("Borrando "))
 
 export default cliente

@@ -6,11 +6,11 @@ import Vendedor from '../models/VendedorModel.js'
 
 const cargarTablas = async() =>{
     
-    await Usuario.sync({alter:true})
-    await Cliente.sync({alter:true})
-    await Plan.sync({alter:true})
-    await Telefono.sync({alter:true})
-    await Vendedor.sync({alter:true})
+    await Usuario.sync({force:true})
+    await Cliente.sync({force:true})
+    await Plan.sync({force:true})
+    await Telefono.sync({force:true})
+    await Vendedor.sync({force:true})
 }
 
 cargarTablas()
