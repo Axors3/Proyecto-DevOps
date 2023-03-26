@@ -2,10 +2,12 @@ import { Router } from "express";
 import telefonoController from '../controllers/telefonoController.js'
 
 const telefono = Router();
-const {createTelefono} = telefonoController()
+const {createTelefono,getTelefonoById, getTelefonos} = telefonoController()
 
-telefono.get('/',(req, resp) =>{
-    resp.status(200).json({message:"dentro de telefonos"})
+telefono.get('/',async(req, resp) =>{
+    
+    const {tels} = await getTelefonos();
+    resp.status(200).json(tels)
 })
 
 telefono.post('/', async (req,resp) =>{
@@ -24,7 +26,15 @@ telefono.post('/', async (req,resp) =>{
     }
 })
 
-telefono.get('/:id',(req,resp) => resp.send("Obteniendo telefonos"))
+telefono.get('/:id',async(req,resp) => {
+
+    try {
+        const {tel} = await getTelefonoById(req);
+        resp.status(200).json(tel.dataValues)
+    } catch (error) {
+        resp.json(error)
+    }
+})
 
 telefono.put('/:id',(req,resp) => resp.send("Poniendo telefonos"))
 
