@@ -8,7 +8,14 @@ vendedor.get('/',(req, resp) =>{
 
 vendedor.post('/',(req,resp) => resp.send("Actualizando "))
 
-vendedor.get('/:id',(req,resp) => resp.send("Obteniendo "))
+vendedor.get('/:id',async(req,resp) => {
+    try{
+        const{ven} = await getVendedorById(req);
+        resp.status(200).json(ven.dataValues)
+    }catch(error){
+        resp.json(error)
+    }
+})
 
 vendedor.put('/:id',(req,resp) => resp.send("Poniendo "))
 
