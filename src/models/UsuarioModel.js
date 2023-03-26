@@ -22,11 +22,13 @@ const Usuario = conn.define('Usuario',{
         type: DataTypes.STRING(10),
         allowNull:false
     },
-    lastLoginDate:{
-        type:DataTypes.DATE,
+    telefono:{
+        type:DataTypes.INTEGER,
+        allowNull:true
     },
-    createdDate:{
-        type: DataTypes.DATE,
+    edad:{
+        type: DataTypes.INTEGER,
+        allowNull:false
     }
 });
 
