@@ -1,4 +1,6 @@
 import { Router } from "express";
+import cliente from "../cliente.js";
+import plan from "../plan.js";
 import usuario from '../usuario.js'
 const uadyfonApi = Router()
 
@@ -9,7 +11,7 @@ uadyfonApi.get('/',(req, resp) => {
 })
 
 uadyfonApi.use('/usuarios', usuario)
-
-
+uadyfonApi.use('/clientes',cliente)
+uadyfonApi.use('/planes',plan)
 
 export default uadyfonApi
