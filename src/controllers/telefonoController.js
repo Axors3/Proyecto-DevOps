@@ -2,6 +2,7 @@ import tm from '../models/TelefonoModel.js'
 
 const telefonoController = () =>{
 
+    //POST
     const createTelefono =  (data) =>{
 
         const {modelo, marca, procesador, ram_gb, almacenamiento_gb} = data;
@@ -20,9 +21,23 @@ const telefonoController = () =>{
 
     }
 
+    //GET by id
+    const getTelefonoById = async (req) =>{
+
+        const tel = await tm.findOne({
+            where:{
+                id:req.params.id
+            }
+        });
+
+        return{
+            tel
+        }
+    }
 
     return{
-        createTelefono
+        createTelefono,
+        getTelefonoById
     }
 
 }
