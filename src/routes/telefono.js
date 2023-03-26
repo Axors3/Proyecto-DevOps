@@ -2,10 +2,12 @@ import { Router } from "express";
 import telefonoController from '../controllers/telefonoController.js'
 
 const telefono = Router();
-const {createTelefono,getTelefonoById} = telefonoController()
+const {createTelefono,getTelefonoById, getTelefonos} = telefonoController()
 
-telefono.get('/',(req, resp) =>{
-    resp.status(200).json({message:"dentro de telefonos"})
+telefono.get('/',async(req, resp) =>{
+    
+    const {tels} = await getTelefonos();
+    resp.status(200).json(tels)
 })
 
 telefono.post('/', async (req,resp) =>{

@@ -21,6 +21,16 @@ const telefonoController = () =>{
 
     }
 
+    //GET all
+    const getTelefonos = async () =>{
+
+        const tels = await tm.findAll()
+
+        return{
+            tels
+        }
+    }
+
     //GET by id
     const getTelefonoById = async (req) =>{
 
@@ -37,7 +47,8 @@ const telefonoController = () =>{
 
     return{
         createTelefono,
-        getTelefonoById
+        getTelefonoById,
+        getTelefonos
     }
 
 }
