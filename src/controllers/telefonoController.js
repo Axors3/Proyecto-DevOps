@@ -69,13 +69,24 @@ const telefonoController = () =>{
 
     }
 
+    //DELETE
+    const deleteTelefono = async(req) =>{
+
+        await tm.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+    }
+
 
 
     return{
         createTelefono,
+        deleteTelefono,
         getTelefonoById,
         getTelefonos,
-        updateTelefono
+        updateTelefono,
     }
 
 }
