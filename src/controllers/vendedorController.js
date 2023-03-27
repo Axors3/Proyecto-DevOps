@@ -31,10 +31,20 @@ const vendedorController = () =>{
         }
     }
 
+    //GET all
+    const getVendedores = async() =>{
+        const vens = await tm.findAll()
+
+        return{
+            vens
+        }
+    }
+
 
     return{
         getVendedorById,
-        createVendedor
+        createVendedor,
+        getVendedores
     }
 
 }
