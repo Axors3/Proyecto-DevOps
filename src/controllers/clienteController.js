@@ -15,9 +15,9 @@ const clienteController = () =>{
     }
 
     //POST
-    const createCliente = (data) =>{
+    const createCliente = (req) =>{
 
-        const {nombre, edad, telefono, tipo_compra, fecha_compra} = data;
+        const {nombre, edad, telefono, tipo_compra, fecha_compra} = req.body;
         const newCliente = tm.build({
             'nombre': nombre,
             'edad' : edad,

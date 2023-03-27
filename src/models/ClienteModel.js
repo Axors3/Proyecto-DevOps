@@ -17,7 +17,7 @@ const Cliente = conn.define('Cliente', {
     allowNull: true
   },
   telefono: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING(12),
     allowNull: true
   },
   tipo_compra: {
@@ -25,7 +25,7 @@ const Cliente = conn.define('Cliente', {
     allowNull: true
   },
   fecha_compra: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: true
   }
 });

@@ -3,9 +3,9 @@ import tm from '../models/TelefonoModel.js'
 const telefonoController = () =>{
 
     //POST
-    const createTelefono =  (data) =>{
+    const createTelefono =  (req) =>{
 
-        const {modelo, marca, procesador, ram_gb, almacenamiento_gb} = data;
+        const {modelo, marca, procesador, ram_gb, almacenamiento_gb} = req.body;
 
         const newTelefono = tm.build({
             'modelo': modelo,
