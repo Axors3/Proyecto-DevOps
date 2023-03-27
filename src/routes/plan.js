@@ -1,17 +1,65 @@
 import { Router } from "express";
+import planController from '../controllers/planController.js'
 
-const plan = Router()
+const plan = Router();
+const {
+    getPlanById,
+    createPlan,
+    getPlanes,
+    updatePlan,
+    deletePlan} = planController()
 
-plan.get('/',(req,resp) =>{
-    resp.status(200).json({message:"dentro de plan"})
+//Get all
+plan.get('/',async(req,resp) =>{
+    try{
+        const {planes} = await getPlanes();
+        resp.status(200).json(planes)
+    }catch(error){
+        resp.status(403).json(error)
+    }
 })
 
-plan.post('/',(req,resp) => resp.send("Actualizando "))
+//Post
+plan.post('/',async(req,resp) => {
+    const {newPlan} = createPlan(req)
 
-plan.get('/:id',(req,resp) => resp.send("Obteniendo "))
+    try{
+        await newPlan.save()
+        resp.status(201).json(newPlan)
+    } catch (error){
+        resp.status(403).json(error)
+    }
+})
 
-plan.put('/:id',(req,resp) => resp.send("Poniendo "))
+//Get by id
+plan.get('/:id',async(req,resp) => {
+    try{
+        const{plan} = await getPlanById(req);
+        resp.status(200).json(plan.dataValues)
+    }catch(error){
+        resp.status(403).json(error)
+    }
+})
 
-plan.delete('/:id',(req,resp) => resp.send("Borrando "))
+//Put
+plan.put('/:id',async(req,resp) => {
+    try{
+        const{plan} = await updatePlan(req);
+        await plan.save();
+        resp.status(200).json(plan.dataValues);
+    } catch(error){
+        resp.status(403).json(error)
+    }
+})
+
+//Delete
+plan.delete('/:id',async(req,resp) => {
+    try{
+        await deletePlan(req);
+        resp.status(204).json({message:"elemento borrado correctamente"});
+    }catch(error){
+        resp.status(403).json(error);
+    }
+})
 
 export default plan
