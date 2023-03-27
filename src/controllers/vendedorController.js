@@ -40,11 +40,35 @@ const vendedorController = () =>{
         }
     }
 
+    //PUT
+    const updateVendedor = async(req) =>{
+        const ven = await tm.findOne({
+            where:{
+                id:req.params.id
+            }
+        });
+
+        const {nombre, email, num_ventas, hora_entrada, hora_salida} = req.body;
+
+        ven.set({
+        'nombre': nombre,
+        'email' : email,
+        'num_ventas' : num_ventas,
+        'hora_entrada' : hora_entrada,
+        'hora_salida' : hora_salida
+        });
+
+        return{
+            ven
+        }
+
+    }
 
     return{
         getVendedorById,
         createVendedor,
-        getVendedores
+        getVendedores,
+        updateVendedor
     }
 
 }
