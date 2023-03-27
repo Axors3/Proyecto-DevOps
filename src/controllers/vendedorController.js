@@ -14,8 +14,27 @@ const vendedorController = () =>{
         }
     }
 
+    //POST
+    const createVendedor = (data) =>{
+
+        const {nombre, email, num_ventas, hora_entrada, hora_salida} = data;
+        const newVendedor = tm.build({
+            'nombre': nombre,
+            'email' : email,
+            'num_ventas' : num_ventas,
+            'hora_entrada' : hora_entrada,
+            'hora_salida' : hora_salida
+        })
+
+        return{
+            newVendedor
+        }
+    }
+
+
     return{
-        getVendedorById
+        getVendedorById,
+        createVendedor
     }
 
 }
