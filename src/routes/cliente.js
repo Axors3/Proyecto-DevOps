@@ -15,20 +15,19 @@ cliente.get('/',async(req,resp) =>{
         const {clis} = await getClientes();
         resp.status(200).json(clis)
     } catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     } 
 })
 
 //Post
 cliente.post('/',async(req,resp) => {
 
-    const data = req.body;
-    const {newCliente} = createCliente(data)
+    const {newCliente} = createCliente(req)
     try{
         await newCliente.save()
         resp.status(201).json(newCliente)
     }catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -38,7 +37,7 @@ cliente.get('/:id',async(req,resp) => {
         const{cli} = await getClienteById(req);
         resp.status(200).json(cli.dataValues)
     }catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -49,7 +48,7 @@ cliente.put('/:id',async(req,resp) => {
         await cli.save();
         resp.status(200).json(cli.dataValues);
     } catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -59,7 +58,7 @@ cliente.delete('/:id',async(req,resp) => {
         await deleteCliente(req);
         resp.status(204).json({message:"elemento borrado correctamente"});
     }catch(error){
-        resp.json(error);
+        resp.status(403).json(error);
     }
 })
 

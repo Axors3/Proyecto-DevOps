@@ -23,7 +23,7 @@ const Usuario = conn.define('Usuario',{
         allowNull:false
     },
     telefono:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING(12),
         allowNull:true
     },
     edad:{

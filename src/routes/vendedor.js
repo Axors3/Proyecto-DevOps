@@ -15,21 +15,21 @@ vendedor.get('/',async(req, resp) =>{
         const {vens} = await getVendedores();
         resp.status(200).json(vens)
     }catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 
 })
 
 //Post
 vendedor.post('/',async(req,resp) => {
-    const data = req.body;
-    const {newVendedor} = createVendedor(data)
+    
+    const {newVendedor} = createVendedor(req)
 
     try{
         await newVendedor.save()
         resp.status(201).json(newVendedor)
     } catch (error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -39,7 +39,7 @@ vendedor.get('/:id',async(req,resp) => {
         const{ven} = await getVendedorById(req);
         resp.status(200).json(ven.dataValues)
     }catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -50,7 +50,7 @@ vendedor.put('/:id',async(req,resp) => {
         await ven.save();
         resp.status(200).json(ven.dataValues);
     } catch(error){
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -60,7 +60,7 @@ vendedor.delete('/:id',async(req,resp) => {
         await deleteVendedor(req);
         resp.status(204).json({message:"elemento borrado correctamente"});
     }catch(error){
-        resp.json(error);
+        resp.status(403).json(error);
     }
 })
 

@@ -16,16 +16,15 @@ telefono.get('/',async(req, resp) =>{
         const {tels} = await getTelefonos();
         resp.status(200).json(tels) 
     } catch (error) {
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
 //Post
 telefono.post('/', async (req,resp) =>{
 
-    const data = req.body;
 
-    const {newTelefono} = createTelefono(data)
+    const {newTelefono} = createTelefono(req)
     
 
     try {
@@ -33,7 +32,7 @@ telefono.post('/', async (req,resp) =>{
         resp.status(201).json(newTelefono)
 
     } catch (error) {
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -44,7 +43,7 @@ telefono.get('/:id',async(req,resp) => {
         const {tel} = await getTelefonoById(req);
         resp.status(200).json(tel.dataValues)
     } catch (error) {
-        resp.json(error)
+        resp.status(403).json(error)
     }
 })
 
@@ -56,12 +55,13 @@ telefono.put('/:id',async(req,resp) => {
         await tel.save();
         resp.status(200).json(tel.dataValues);
     } catch (error) {
-        resp.json(error)
+        resp.status(403).json(error)
     }
 
 
 })
 
+//Delete
 telefono.delete('/:id',async(req,resp) => {
 
     try {
@@ -69,7 +69,7 @@ telefono.delete('/:id',async(req,resp) => {
 
         resp.status(204).json({message:"elemento borrado correctamente"});
     } catch (error) {
-        resp.json(error);
+        resp.status(403).json(error);
     }
 })
 
