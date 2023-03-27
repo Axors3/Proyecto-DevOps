@@ -2,14 +2,25 @@ import { Router } from "express";
 import telefonoController from '../controllers/telefonoController.js'
 
 const telefono = Router();
-const {createTelefono,getTelefonoById, getTelefonos} = telefonoController()
+const {
+    createTelefono,
+    getTelefonoById, 
+    getTelefonos,
+    updateTelefono
+    } = telefonoController()
 
+//Get all
 telefono.get('/',async(req, resp) =>{
-    
-    const {tels} = await getTelefonos();
-    resp.status(200).json(tels)
+
+    try {
+        const {tels} = await getTelefonos();
+        resp.status(200).json(tels) 
+    } catch (error) {
+        resp.json(error)
+    }
 })
 
+//Post
 telefono.post('/', async (req,resp) =>{
 
     const data = req.body;
@@ -26,6 +37,7 @@ telefono.post('/', async (req,resp) =>{
     }
 })
 
+//Get by id
 telefono.get('/:id',async(req,resp) => {
 
     try {
@@ -36,7 +48,19 @@ telefono.get('/:id',async(req,resp) => {
     }
 })
 
-telefono.put('/:id',(req,resp) => resp.send("Poniendo telefonos"))
+//Put
+telefono.put('/:id',async(req,resp) => {
+
+    try {
+        const {tel} = await updateTelefono(req);
+        await tel.save();
+        resp.status(200).json(tel.dataValues);
+    } catch (error) {
+        resp.json(error)
+    }
+
+
+})
 
 telefono.delete('/:id',(req,resp) => resp.send("Borrando telefonos"))
 

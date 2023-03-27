@@ -45,10 +45,37 @@ const telefonoController = () =>{
         }
     }
 
+    //PUT
+    const updateTelefono = async (req) =>{
+        const tel = await tm.findOne({
+            where:{
+                id:req.params.id
+            }
+        });
+
+       const {modelo, marca, procesador, ram_gb, almacenamiento_gb} = req.body
+
+        tel.set({
+        'modelo': modelo,
+        'marca': marca,
+        'procesador':procesador,
+        'ram_gb': ram_gb,
+        'almacenamiento_gb':almacenamiento_gb
+       });
+
+       return{
+            tel 
+       }
+
+    }
+
+
+
     return{
         createTelefono,
         getTelefonoById,
-        getTelefonos
+        getTelefonos,
+        updateTelefono
     }
 
 }
