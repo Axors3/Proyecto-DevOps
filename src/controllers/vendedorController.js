@@ -64,11 +64,21 @@ const vendedorController = () =>{
 
     }
 
+    //DELETE
+    const deleteVendedor = async(req) =>{
+        await tm.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+    }
+
     return{
         getVendedorById,
         createVendedor,
         getVendedores,
-        updateVendedor
+        updateVendedor,
+        deleteVendedor
     }
 
 }
