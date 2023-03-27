@@ -3,11 +3,11 @@ import telefonoController from '../controllers/telefonoController.js'
 
 const telefono = Router();
 const {
-    createTelefono,
-    getTelefonoById, 
-    getTelefonos,
-    updateTelefono
-    } = telefonoController()
+        createTelefono,
+        getTelefonoById, 
+        getTelefonos,
+        updateTelefono,
+        deleteTelefono} = telefonoController()
 
 //Get all
 telefono.get('/',async(req, resp) =>{
@@ -62,6 +62,15 @@ telefono.put('/:id',async(req,resp) => {
 
 })
 
-telefono.delete('/:id',(req,resp) => resp.send("Borrando telefonos"))
+telefono.delete('/:id',async(req,resp) => {
+
+    try {
+        await deleteTelefono(req);
+
+        resp.status(204).json({message:"elemento borrado correctamente"});
+    } catch (error) {
+        resp.json(error);
+    }
+})
 
 export default telefono
