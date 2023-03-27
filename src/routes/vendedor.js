@@ -3,11 +3,11 @@ import vendedorController from '../controllers/vendedorController.js'
 
 const vendedor = Router();
 const {
-    getVendedorById,
-    createVendedor,
-    getVendedores,
-    updateVendedor
-    } = vendedorController()
+        getVendedorById,
+        createVendedor,
+        getVendedores,
+        updateVendedor,
+        deleteVendedor} = vendedorController()
 
 //Get all
 vendedor.get('/',async(req, resp) =>{
@@ -54,6 +54,14 @@ vendedor.put('/:id',async(req,resp) => {
     }
 })
 
-vendedor.delete('/:id',(req,resp) => resp.send("Borrando "))
+//Delete
+vendedor.delete('/:id',async(req,resp) => {
+    try{
+        await deleteVendedor(req);
+        resp.status(204).json({message:"elemento borrado correctamente"});
+    }catch(error){
+        resp.json(error);
+    }
+})
 
 export default vendedor
