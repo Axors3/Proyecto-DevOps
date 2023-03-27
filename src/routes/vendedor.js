@@ -2,10 +2,12 @@ import { Router } from "express";
 import vendedorController from '../controllers/vendedorController.js'
 
 const vendedor = Router();
-const {getVendedorById,createVendedor} = vendedorController()
+const {getVendedorById,createVendedor,getVendedores} = vendedorController()
 
-vendedor.get('/',(req, resp) =>{
-    resp.status(200).json({message:"dentro de "})
+vendedor.get('/',async(req, resp) =>{
+
+    const {vens} = await getVendedores();
+    resp.status(200).json(vens)
 })
 
 vendedor.post('/',async(req,resp) => {
