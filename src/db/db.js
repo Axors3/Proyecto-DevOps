@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
-export const conn = new Sequelize('telefoniadb','root','',{
-    host:'localhost',
+export const conn = new Sequelize('telefoniadb','darling','password',{
+    host:'host.docker.internal',
     dialect:'mariadb'
 
 })

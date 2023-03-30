@@ -1,8 +1,10 @@
-import app from '../src/app.js'
+import {createServer} from '../src/app.js'
 import request from 'supertest'
 
 describe('debe existir la ruta principal y sus endpoints', () => {
     
+    const app = createServer()
+
     test('GET /uadyfon/api', async () => {
         
         const resp = await request(app).get('/uadyfon/api').send()

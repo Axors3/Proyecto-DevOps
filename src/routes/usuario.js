@@ -1,5 +1,5 @@
 import { Router } from "express";
-import usuarioController from '../controllers/usuarioController.js'
+import * as usuarioController from '../controllers/usuarioController.js'
 
 const usuario = Router()
 const {
@@ -7,7 +7,7 @@ const {
         deleteUsuario,
         getUsuarioById,
         getUsuarios,
-        updateUsuario} = usuarioController();
+        updateUsuario} = usuarioController;
 
 usuario.get('/',async(req,resp) =>{
 
