@@ -1,13 +1,17 @@
 import { Router } from "express";
 import usuarioController from '../controllers/usuarioController.js'
 
+import jwt  from 'jsonwebtoken'
+import config from '../config.js'
+
 const usuario = Router()
 const {
         createUsuario,
         deleteUsuario,
         getUsuarioById,
         getUsuarios,
-        updateUsuario} = usuarioController();
+        updateUsuario,
+        verificarUsuario} = usuarioController();
 
 usuario.get('/',async(req,resp) =>{
 
@@ -19,17 +23,31 @@ usuario.get('/',async(req,resp) =>{
     }
 })
 
-usuario.post('/',async(req,resp) => {
+usuario.post('/singup',async(req,resp) => {
     
-    const {newUsuario} = createUsuario(req)
-    
+    const {newUsuario} = await createUsuario(req)
+    const token = jwt.sign({id: newUsuario.id},config.SECRET,{
+        expiresIn: 86400 //Token expira en 86400s = 24hrs
+    })
 
     try {
         await newUsuario.save()
-        resp.status(201).json(newUsuario)
+        resp.status(201).json(token)
 
     } catch (error) {
         resp.status(403).json(error)
+    }
+})
+
+usuario.post('/singin', async(req,resp) => {
+    
+    
+    try {
+        const {usuarioEcontrado,token} = await verificarUsuario(req)
+        resp.status(201).json(token)
+
+    } catch (error) {
+        resp.status(403).json({message:"Usuario no encontrado"})
     }
 })
 

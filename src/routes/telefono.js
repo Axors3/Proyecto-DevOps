@@ -1,6 +1,6 @@
 import { Router } from "express";
 import telefonoController from '../controllers/telefonoController.js'
-
+import {verificarToken} from '../middlewares/index.js'
 const telefono = Router();
 const {
         createTelefono,
@@ -10,7 +10,7 @@ const {
         deleteTelefono} = telefonoController()
 
 //Get all
-telefono.get('/',async(req, resp) =>{
+telefono.get('/',verificarToken,async(req, resp) =>{
 
     try {
         const {tels} = await getTelefonos();
@@ -21,7 +21,7 @@ telefono.get('/',async(req, resp) =>{
 })
 
 //Post
-telefono.post('/', async (req,resp) =>{
+telefono.post('/',verificarToken, async (req,resp) =>{
 
 
     const {newTelefono} = createTelefono(req)
@@ -37,7 +37,7 @@ telefono.post('/', async (req,resp) =>{
 })
 
 //Get by id
-telefono.get('/:id',async(req,resp) => {
+telefono.get('/:id',verificarToken,async(req,resp) => {
 
     try {
         const {tel} = await getTelefonoById(req);
@@ -48,7 +48,7 @@ telefono.get('/:id',async(req,resp) => {
 })
 
 //Put
-telefono.put('/:id',async(req,resp) => {
+telefono.put('/:id',verificarToken,async(req,resp) => {
 
     try {
         const {tel} = await updateTelefono(req);
@@ -62,7 +62,7 @@ telefono.put('/:id',async(req,resp) => {
 })
 
 //Delete
-telefono.delete('/:id',async(req,resp) => {
+telefono.delete('/:id',verificarToken,async(req,resp) => {
 
     try {
         await deleteTelefono(req);
