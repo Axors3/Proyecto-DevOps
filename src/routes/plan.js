@@ -1,5 +1,6 @@
 import { Router } from "express";
 import planController from '../controllers/planController.js'
+import {verificarToken} from '../middlewares/index.js'
 
 const plan = Router();
 const {
@@ -10,7 +11,7 @@ const {
     deletePlan} = planController()
 
 //Get all
-plan.get('/',async(req,resp) =>{
+plan.get('/',verificarToken,async(req,resp) =>{
     try{
         const {planes} = await getPlanes();
         resp.status(200).json(planes)
@@ -20,7 +21,7 @@ plan.get('/',async(req,resp) =>{
 })
 
 //Post
-plan.post('/',async(req,resp) => {
+plan.post('/',verificarToken,async(req,resp) => {
     const {newPlan} = createPlan(req)
 
     try{
@@ -32,7 +33,7 @@ plan.post('/',async(req,resp) => {
 })
 
 //Get by id
-plan.get('/:id',async(req,resp) => {
+plan.get('/:id',verificarToken,async(req,resp) => {
     try{
         const{plan} = await getPlanById(req);
         resp.status(200).json(plan.dataValues)
@@ -42,7 +43,7 @@ plan.get('/:id',async(req,resp) => {
 })
 
 //Put
-plan.put('/:id',async(req,resp) => {
+plan.put('/:id',verificarToken,async(req,resp) => {
     try{
         const{plan} = await updatePlan(req);
         await plan.save();
@@ -53,7 +54,7 @@ plan.put('/:id',async(req,resp) => {
 })
 
 //Delete
-plan.delete('/:id',async(req,resp) => {
+plan.delete('/:id',verificarToken,async(req,resp) => {
     try{
         await deletePlan(req);
         resp.status(204).json({message:"elemento borrado correctamente"});
