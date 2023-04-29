@@ -1,5 +1,5 @@
 import { Router } from "express";
-import usuarioController from '../controllers/usuarioController.js'
+import * as usuarioController from '../controllers/usuarioController.js'
 
 import jwt  from 'jsonwebtoken'
 import config from '../config.js'
@@ -12,6 +12,7 @@ const {
         getUsuarios,
         updateUsuario,
         verificarUsuario} = usuarioController();
+
 
 usuario.get('/',async(req,resp) =>{
 

@@ -3,10 +3,11 @@ import jwt  from 'jsonwebtoken'
 import config from '../config.js'
 import bcrypt from 'bcrypt'
 
-const usuarioController = () =>{
+
 
     //POST / SingUp
     const createUsuario =  async (req) =>{
+
 
         const {username,email,password,telefono,edad} = req.body;
         /*
@@ -63,7 +64,7 @@ const usuarioController = () =>{
     }
 
     //GET all
-    const getUsuarios = async () =>{
+    export const getUsuarios = async () =>{
 
         const users = await us.findAll()
 
@@ -73,7 +74,7 @@ const usuarioController = () =>{
     }
 
     //GET by id
-    const getUsuarioById = async (req) =>{
+    export const getUsuarioById = async (req) =>{
 
         const user = await us.findOne({
             where:{
@@ -87,7 +88,7 @@ const usuarioController = () =>{
     }
 
     //PUT
-    const updateUsuario = async (req) =>{
+    export const updateUsuario = async (req) =>{
         const user = await us.findOne({
             where:{
                 id:req.params.id
@@ -111,7 +112,7 @@ const usuarioController = () =>{
     }
 
     //DELETE
-    const deleteUsuario = async(req) =>{
+    export const deleteUsuario = async(req) =>{
 
         await us.destroy({
             where:{
@@ -119,6 +120,7 @@ const usuarioController = () =>{
             }
         })
     }
+
 
 
 
@@ -131,6 +133,7 @@ const usuarioController = () =>{
         verificarUsuario
     }
 
-}
+
 
 export default usuarioController
+
