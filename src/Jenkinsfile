@@ -1,0 +1,30 @@
+
+pipeline{
+    agent any
+
+    stages{
+        stage('Checkout'){
+            steps{
+                //Clonar repositorio git
+                git url: 'https://github.com/Axors3/Proyecto-DevOps.git'
+
+            }
+        }
+        stage('Install dependencies'){
+            steps{
+                //sh 'npm install'
+                bat 'npm install'
+            }
+        }
+        stage('Build doker image'){
+            steps{
+                script {
+                    def branchName = env.GIT_BRANCH.replace('/','-')
+                    def imageName = "uadyfon-api-${branchName}-${env.BUILD_NUMBER}"
+                    docker.build(imageName,'--build-arg NODE_ENV=dev .')
+                    docker.image(imageName).run("-p 9000:8081")
+                }
+            }
+        }
+    }
+}
