@@ -22,7 +22,7 @@ pipeline{
             steps{
                 script {
                     def branchName = env.GIT_BRANCH.replace('/','-').toLowerCase()
-                    def imageName = "uadyphone-${branchName}"
+                    def imageName = "uadyphone-${branchName}-${env.BUILD_NUMBER}"
                     //Crear Imagen de Docker
                     docker.build(imageName)
                     //Correr Image
