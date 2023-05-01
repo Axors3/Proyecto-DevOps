@@ -1,6 +1,6 @@
 import { Router } from "express";
 import vendedorController from '../controllers/vendedorController.js'
-
+import {verificarToken} from '../middlewares/index.js'
 const vendedor = Router();
 const {
         getVendedorById,
@@ -10,7 +10,7 @@ const {
         deleteVendedor} = vendedorController()
 
 //Get all
-vendedor.get('/',async(req, resp) =>{
+vendedor.get('/',verificarToken,async(req, resp) =>{
     try{
         const {vens} = await getVendedores();
         resp.status(200).json(vens)
@@ -21,7 +21,7 @@ vendedor.get('/',async(req, resp) =>{
 })
 
 //Post
-vendedor.post('/',async(req,resp) => {
+vendedor.post('/',verificarToken,async(req,resp) => {
     
     const {newVendedor} = createVendedor(req)
 
@@ -34,7 +34,7 @@ vendedor.post('/',async(req,resp) => {
 })
 
 //Get by id
-vendedor.get('/:id',async(req,resp) => {
+vendedor.get('/:id',verificarToken,async(req,resp) => {
     try{
         const{ven} = await getVendedorById(req);
         resp.status(200).json(ven.dataValues)
@@ -44,7 +44,7 @@ vendedor.get('/:id',async(req,resp) => {
 })
 
 //Put
-vendedor.put('/:id',async(req,resp) => {
+vendedor.put('/:id',verificarToken,async(req,resp) => {
     try{
         const{ven} = await updateVendedor(req);
         await ven.save();
@@ -55,7 +55,7 @@ vendedor.put('/:id',async(req,resp) => {
 })
 
 //Delete
-vendedor.delete('/:id',async(req,resp) => {
+vendedor.delete('/:id',verificarToken,async(req,resp) => {
     try{
         await deleteVendedor(req);
         resp.status(204).json({message:"elemento borrado correctamente"});

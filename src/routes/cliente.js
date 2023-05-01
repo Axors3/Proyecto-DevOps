@@ -1,5 +1,6 @@
 import { Router } from "express";
 import clienteController from '../controllers/clienteController.js'
+import {verificarToken} from '../middlewares/index.js'
 
 const cliente = Router();
 const {
@@ -10,7 +11,7 @@ const {
         deleteCliente} = clienteController()
 
 //Get all
-cliente.get('/',async(req,resp) =>{
+cliente.get('/',verificarToken,async(req,resp) =>{
     try{
         const {clis} = await getClientes();
         resp.status(200).json(clis)
@@ -20,7 +21,7 @@ cliente.get('/',async(req,resp) =>{
 })
 
 //Post
-cliente.post('/',async(req,resp) => {
+cliente.post('/',verificarToken,async(req,resp) => {
 
     const {newCliente} = createCliente(req)
     try{
@@ -32,7 +33,7 @@ cliente.post('/',async(req,resp) => {
 })
 
 //Get by id
-cliente.get('/:id',async(req,resp) => {
+cliente.get('/:id',verificarToken,async(req,resp) => {
     try{
         const{cli} = await getClienteById(req);
         resp.status(200).json(cli.dataValues)
@@ -42,7 +43,7 @@ cliente.get('/:id',async(req,resp) => {
 })
 
 //Put
-cliente.put('/:id',async(req,resp) => {
+cliente.put('/:id',verificarToken,async(req,resp) => {
     try{
         const{cli} = await updateCliente(req);
         await cli.save();
@@ -53,7 +54,7 @@ cliente.put('/:id',async(req,resp) => {
 })
 
 //Delete
-cliente.delete('/:id',async(req,resp) => {
+cliente.delete('/:id',verificarToken,async(req,resp) => {
     try{
         await deleteCliente(req);
         resp.status(204).json({message:"elemento borrado correctamente"});
