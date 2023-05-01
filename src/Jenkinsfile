@@ -24,7 +24,7 @@ pipeline{
                     def branchName = env.GIT_BRANCH.replace('/','-')
                     def imageName = "uadyphone-${branchName}-${env.BUILD_NUMBER}"
                     //Crear Imagen de Docker
-                    docker.build(imageName,'--build-arg NODE_ENV=production .')
+                    docker.build(imageName,'--build-arg  .')
                     //Correr Image
                     docker.image(imageName).run("-p 9000:8081")
                 }
