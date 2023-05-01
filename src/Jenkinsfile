@@ -3,61 +3,33 @@ pipeline{
     agent any
 
     stages{
-        stage('Checkout'){
+        stage('Pipeline 1'){
             steps{
-                //Clonar repositorio git
+                //Clonar el proyecto
                 git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'feature/Jenkins'
 
             }
-        }
-        stage('Install dependencies'){
             steps{
+                //Construccion del proyecto
                 //sh 'npm install'
                 bat 'npm install'
             }
+            steps{
+                //Correr test cases
+                echo "Todo chido"
+            }
+        }
+        stage('Pipeline 2'){
+            steps{
+                //Crear Imagen de Docker
+                bat "docker build --tag uadyphone-api-feature/Jenkins ."
+            }
+            steps{
+                //Correr Image
+                bat "docker run --detach uadyphone-api-feature/Jenkins"
+            }
         }
 
     }
 }
 
-/*
-pipeline {
-    agent any
-    stages {
-        stage('Pipeline 1') {
-            steps {
-                script {
-                    pipeline {
-                        agent any
-                        stages {
-                            stage('Checkout') {
-                                steps {
-                                    //Clonar repositorio git
-                                    git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'feature/Jenkins'
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        stage('Pipeline 2') {
-            steps {
-                script {
-                    pipeline {
-                        agent any
-                        stages {
-                            stage('Install dependencies') {
-                                steps {
-                                    //sh 'npm install'
-                                    bat 'npm install'
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-*/
