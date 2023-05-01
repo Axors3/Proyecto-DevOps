@@ -41,7 +41,7 @@ pipeline {
                             stage('Checkout') {
                                 steps {
                                     //Clonar repositorio git
-                                    git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'feature/Jenkins'
+                                    git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: '*/feature/Jenkins'
                                 }
                             }
                         }
