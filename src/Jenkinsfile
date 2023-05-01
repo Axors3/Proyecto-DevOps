@@ -20,10 +20,10 @@ pipeline{
         stage('Pipeline 2'){
             steps{
                 //Crear Imagen de Docker
-                bat "docker build --tag uadyphone-api-feature/Jenkins ."
+                bat "docker build --tag uadyphone-api-feature/jenkins ."
 
                 //Correr Image
-                bat "docker run --detach uadyphone-api-feature/Jenkins"
+                bat "docker run --detach uadyphone-api-feature/jenkins"
             }
         }
 
