@@ -1,4 +1,4 @@
-
+/*
 pipeline{
     agent any
 
@@ -23,6 +23,46 @@ pipeline{
                     def imageName = "uadyfon-api-${branchName}-${env.BUILD_NUMBER}"
                     docker.build(imageName,'--build-arg NODE_ENV=dev .')
                     docker.image(imageName).run("-p 9000:8081")
+                }
+            }
+        }
+    }
+}
+*/
+pipeline {
+    agent any
+    stages {
+        stage('Pipeline 1') {
+            steps {
+                script {
+                    pipeline {
+                        agent any
+                        stages {
+                            stage('Checkout') {
+                                steps {
+                                    //Clonar repositorio git
+                                    git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'feature/Jenkins'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage('Pipeline 2') {
+            steps {
+                script {
+                    pipeline {
+                        agent any
+                        stages {
+                            stage('Install dependencies') {
+                                steps {
+                                    //sh 'npm install'
+                                    bat 'npm install'
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
