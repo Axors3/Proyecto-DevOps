@@ -8,23 +8,20 @@ pipeline{
                 //Clonar el proyecto
                 git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'feature/Jenkins'
 
-            }
-            steps{
                 //Construccion del proyecto
                 //sh 'npm install'
                 bat 'npm install'
-            }
-            steps{
+
                 //Correr test cases
                 echo "Todo chido"
+
             }
         }
         stage('Pipeline 2'){
             steps{
                 //Crear Imagen de Docker
                 bat "docker build --tag uadyphone-api-feature/Jenkins ."
-            }
-            steps{
+
                 //Correr Image
                 bat "docker run --detach uadyphone-api-feature/Jenkins"
             }
