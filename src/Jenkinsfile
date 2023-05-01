@@ -13,17 +13,21 @@ pipeline{
                 bat 'npm install'
 
                 //Correr test cases
+                //sh 'run test'
                 echo "Todo chido"
 
             }
         }
         stage('Pipeline 2'){
             steps{
-                //Crear Imagen de Docker
-                bat "docker build --tag uadyphone-api-feature/jenkins ."
-
-                //Correr Image
-                bat "docker run --detach uadyphone-api-feature/jenkins"
+                script {
+                    def branchName = env.GIT_BRANCH.replace('/','-')
+                    def imageName = "uadyphone-${branchName}-${env.BUILD_NUMBER}"
+                    //Crear Imagen de Docker
+                    docker.build(imageName,'--build-arg NODE_ENV=production .')
+                    //Correr Image
+                    docker.image(imageName).run("-p 9000:8081")
+                }
             }
         }
 
