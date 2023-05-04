@@ -1,12 +1,11 @@
 import us from '../models/UsuarioModel.js'
 import jwt  from 'jsonwebtoken'
 import config from '../config.js'
-import bcrypt from 'bcrypt'
 
 
 
     //POST / SingUp
-    const createUsuario =  async (req) =>{
+    export const createUsuario =  async (req) =>{
 
 
         const {username,email,password,telefono,edad} = req.body;
@@ -29,7 +28,7 @@ import bcrypt from 'bcrypt'
     }
 
     //POST / SingIn
-    const verificarUsuario = async (req) =>{
+    export const verificarUsuario = async (req) =>{
         const {email,password} = req.body;
         const token = null
         const usuarioEcontrado = await us.findOne({
@@ -124,16 +123,8 @@ import bcrypt from 'bcrypt'
 
 
 
-    return{
-        createUsuario,
-        deleteUsuario,
-        getUsuarioById,
-        getUsuarios,
-        updateUsuario,
-        verificarUsuario
-    }
+    
 
 
 
-export default usuarioController
 
