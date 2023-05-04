@@ -1,17 +1,16 @@
 import { Router } from "express";
-import * as usuarioController from '../controllers/usuarioController.js'
+import { createUsuario,
+        deleteUsuario,
+        getUsuarioById,
+        getUsuarios,
+        updateUsuario,
+        verificarUsuario} from '../controllers/usuarioController.js'
 
 import jwt  from 'jsonwebtoken'
 import config from '../config.js'
 
 const usuario = Router()
-const {
-        createUsuario,
-        deleteUsuario,
-        getUsuarioById,
-        getUsuarios,
-        updateUsuario,
-        verificarUsuario} = usuarioController();
+
 
 
 usuario.get('/',async(req,resp) =>{
