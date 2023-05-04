@@ -6,15 +6,15 @@ pipeline{
         stage('Pipeline 1'){
             steps{
                 //Clonar el proyecto
-                git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'feature/Jenkins'
+                git url: 'https://github.com/Axors3/Proyecto-DevOps.git',branch: 'dev'
 
                 //Construccion del proyecto
-                //sh 'npm install'
-                bat 'npm install'
+                sh 'npm install'
+                //bat 'npm install'
 
                 //Correr test cases
-                //sh 'run test'
-                echo "Todo chido"
+                sh 'run test'
+                //echo "Todo chido"
 
             }
         }
