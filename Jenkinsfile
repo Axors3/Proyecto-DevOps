@@ -13,7 +13,7 @@ pipeline{
                 //bat 'npm install'
 
                 //Correr test cases
-                sh 'run test'
+                sh 'npm run test'
                 //echo "Todo chido"
 
             }
