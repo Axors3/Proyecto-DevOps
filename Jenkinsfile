@@ -26,7 +26,7 @@ pipeline{
                     //Crear Imagen de Docker
                     docker.build(imageName)
                     //Correr Image
-                    docker.image(imageName).run("-p 9000:8081")
+                    docker.image(imageName).run("-p 9000:3001")
                 }
             }
         }
