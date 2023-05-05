@@ -1,0 +1,29 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('stop all containers'){
+            steps{
+                bat 'docker stop $(docker ps -a -q)'
+                
+            }
+        }
+        stage('make conteiner'){
+            steps{
+                script {
+                    def branchName = env.GIT_BRANCH.replace('/','-').toLowerCase()
+                    def imageName = "uadyphone-${branchName}-${env.BUILD_NUMBER}"
+                    //Crear Imagen de Docker
+                    docker.build(imageName)
+                }
+            }
+        }
+        stage('deploy conteiner'){
+            steps{
+                script{
+                    docker run --add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001 uadyphone-${branchName}:1.0.0-${env.BUILD_NUMBER}
+                }
+            }
+        }
+    }
+}
