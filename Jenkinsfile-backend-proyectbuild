@@ -9,12 +9,12 @@ pipeline{
         }
         stage('Build'){
             steps{
-                bat 'npm install'
+                sh 'npm install'
             }
         }
         stage('Testing'){
             steps{
-                bat 'npm run test'
+                sh 'npm run test'
             }
         }
         stage('Deploy Pipeline 2'){
