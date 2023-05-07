@@ -12,16 +12,16 @@ pipeline{
             steps{
                 script {
                     def branchName = env.GIT_BRANCH.replace('/','-').toLowerCase()
-                    def imageName = "uadyphone-${branchName}-${env.BUILD_NUMBER}"
+                    env.IMAGE_NAME = "uadyphone-${branchName}-${env.BUILD_NUMBER}"
                     //Crear Imagen de Docker
-                    docker.build(imageName)
+                    docker.build(env.IMAGE_NAME)
                 }
             }
         }
         stage('deploy conteiner'){
             steps{
                 script{
-                    docker.image(imageName).withRun('--add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001')
+                    docker.image(env.IMAGE_NAME).withRun('--add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001')
                 }
             }
         }
