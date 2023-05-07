@@ -21,7 +21,7 @@ pipeline{
         stage('deploy conteiner'){
             steps{
                 script{
-                    docker run --add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001 uadyphone-${branchName}:1.0.0-${env.BUILD_NUMBER}
+                    docker.image(imageName).withRun('--add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001')
                 }
             }
         }
