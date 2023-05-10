@@ -14,22 +14,22 @@ const levels = {
 export const logger = createLogger({
     transports: [
         new transports.File({
-            filename:'./logs/info.log',
+            filename:'./logs/logginfile.log',
             level:'info',
             format: format.combine(format.timestamp(),format.json())
         }),
         new transports.File({
-            filename:'./logs/error.log',
+            filename:'./logs/logginfile.log',
             level:'error',
             format: format.combine(format.timestamp(),format.json())
         }),
         new transports.File({
-            filename:'./logs/debug.log',
+            filename:'./logs/logginfile.log',
             level:'debug',
             format: format.combine(format.timestamp(),format.json())
         }),
         new transports.File({
-            filename:'./logs/warn.log',
+            filename:'./logs/logginfile.log',
             level:'warn',
             format: format.combine(format.timestamp(),format.json())
         })
