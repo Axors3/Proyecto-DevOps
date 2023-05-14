@@ -20,8 +20,8 @@ usuario.get('/',async(req,resp) =>{
     try {
         const {users} = await getUsuarios()
         resp.status(200).json(users)
-        logger.log('info','Peticion para la api uadyfone en ruta usuarios')
-        logger.log('debug','Obtener usuarios')
+        logger.log('info',req.baseUrl)
+        logger.log('debug',req.body)
     } catch (error) {
         resp.status(403).json(error)
         logger.log('error','No es posible obtener Usuarios')
