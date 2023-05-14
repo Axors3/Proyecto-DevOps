@@ -1,32 +1,54 @@
 import jwt from "jsonwebtoken"
+import passport from "passport"
+import passportJWT from 'passport-jwt'
 import config from '../config.js'
-import us from '../models/UsuarioModel.js'
 import {logger} from '../utils/logger.js'
+
+const JWTStrategy = passportJWT.Strategy;
+const ExtractJWT = passportJWT.ExtractJwt;
+
 export const verificarToken = async(req,resp,next) =>{
     try{
-        const token = req.headers["x-acces-token"];
-        //console.log(token)
-        if(!token){
-            logger.log('warn','Sin clave de acceso')
-            return resp.status(403).json({message: "Sin clave de acceso"})
-        } 
-        const decodificado = jwt.verify(token,config.SECRET)
-        req.userID = decodificado.id
         
+        /*
         const user = await us.findOne({
             where:{
                 id: decodificado.id
             }
         })
-        if(!user){
-            logger.log('warn','Usuario no encontrado para autenticacion')
-            return resp.status(404).json({message:"Usuario no encontrado"})
-        } 
-        console.log(decodificado.id)
-        next();
+        */
+        passport.authenticate(
+            'jwt', {session: false},
+            (err,user) =>{
+                if(err||!user){
+                    return resp.status(401).json({
+                        message: 'No autorizado',
+                        error: err && err.message,
+                    });
+                }
+                req.user = user;
+                return next();
+            }
+        )(req, resp, next);
+        
+        
+        
+
     }catch(error){
-        logger.log('warn','No autorizado')
-        return resp.status(401).json({message:"No autorizado"})
+        logger.log('warn','Autorizacion incorrecta')
+        return resp.status(401).json({message:"Autorizacion incorrecta"})
     }
     
 }
+
+passport.use(
+    new JWTStrategy(
+        {
+            jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+            secretOrKey: config.SECRET,
+        },
+        (jwtPayload, done) =>{
+            return done(null,jwtPayload);
+        }
+    )
+);
