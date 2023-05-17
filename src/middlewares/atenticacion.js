@@ -10,17 +10,11 @@ const ExtractJWT = passportJWT.ExtractJwt;
 export const verificarToken = async(req,resp,next) =>{
     try{
         
-        /*
-        const user = await us.findOne({
-            where:{
-                id: decodificado.id
-            }
-        })
-        */
         passport.authenticate(
             'jwt', {session: false},
             (err,user) =>{
                 if(err||!user){
+                    logger.log('warn','No autorizado')
                     return resp.status(401).json({
                         message: 'No autorizado',
                         error: err && err.message,

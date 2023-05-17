@@ -15,11 +15,11 @@ cliente.get('/',verificarToken,async(req,resp) =>{
     try{
         const {clis} = await getClientes();
         resp.status(200).json(clis)
-        logger.log('info','Peticion para la api uadyfone en ruta clientes')
-        logger.log('debug','Obtener clientes') 
+        logger.log('info','Peticion para la uadyfone en: '+ req.baseUrl)
+        logger.log('debug','Metodo Obtener clientes del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+ ' ,parametros: ' + JSON.stringify(req.params) + ' , respuesta: ' + JSON.stringify(clis) )
     } catch(error){
         resp.status(403).json(error)
-        logger.log('error','No es posible obtener clientes')
+        logger.log('error','No es posible obtener clientes' + ' , body: ' + JSON.stringify(req.body))
     } 
 })
 
@@ -30,11 +30,11 @@ cliente.post('/',verificarToken,async(req,resp) => {
     try{
         await newCliente.save()
         resp.status(201).json(newCliente)
-        logger.log('info','Peticion para la api uadyfone en ruta clientes')
-        logger.log('debug','Crear cliente') 
+        logger.log('info','Peticion para uadyfone en:  ' + req.baseUrl)
+        logger.log('debug','Metodo Crear cliente del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+' ,parametros: ' + JSON.stringify(req.params) +  ' , respuesta: ' + JSON.stringify(newCliente) )
     }catch(error){
         resp.status(403).json(error)
-        logger.log('error','No es posible crear cliente')
+        logger.log('error','No es posible crear cliente' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
@@ -43,11 +43,11 @@ cliente.get('/:id',verificarToken,async(req,resp) => {
     try{
         const{cli} = await getClienteById(req);
         resp.status(200).json(cli.dataValues)
-        logger.log('info','Peticion para la api uadyfone en ruta clientes')
-        logger.log('debug','Obtener cliente')
+        logger.log('info','Peticion para la uadyfone en: '+ req.baseUrl)
+        logger.log('debug','Metodo Obtener cliente del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+ ' ,parametros: ' + JSON.stringify(req.params) + ' , respuesta: ' + JSON.stringify(cli.dataValues) )
     }catch(error){
         resp.status(403).json(error)
-        logger.log('error','No es posible obtener cliente')
+        logger.log('error','No es posible obtener cliente' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
@@ -57,11 +57,11 @@ cliente.put('/:id',verificarToken,async(req,resp) => {
         const{cli} = await updateCliente(req);
         await cli.save();
         resp.status(200).json(cli.dataValues)
-        logger.log('info','Peticion para la api uadyfone en ruta clientes')
-        logger.log('debug','Actualizar cliente')
+        logger.log('info','Peticion para la api uadyfone en: ' + req.baseUrl)
+        logger.log('debug','Metodo Actualizar cliente del  tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+' ,parametros: ' + JSON.stringify(req.params) +  ' , respuesta: ' + JSON.stringify(cli.dataValues) ) 
     } catch(error){
         resp.status(403).json(error)
-        logger.log('error','No es posible actualizar cliente')
+        logger.log('error','No es posible actualizar cliente' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
@@ -70,11 +70,11 @@ cliente.delete('/:id',verificarToken,async(req,resp) => {
     try{
         await deleteCliente(req);
         resp.status(204).json({message:"elemento borrado correctamente"})
-        logger.log('info','Peticion para la api uadyfone en ruta clientes')
-        logger.log('debug','Eliminar cliente')
+        logger.log('info','Peticion para la api uadyfone en: '+ req.baseUrl)
+        logger.log('debug','Metodo Eliminar cliente del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body) + ' ,parametros: ' + JSON.stringify(req.params))
     }catch(error){
         resp.status(403).json(error)
-        logger.log('error','No es posible eliminar cliente')
+        logger.log('error','No es posible eliminar cliente' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 

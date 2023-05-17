@@ -16,22 +16,26 @@ export const logger = createLogger({
         new transports.File({
             filename:'./logs/logginfile.log',
             level:'info',
-            format: format.combine(format.timestamp(),format.json())
+            format: format.combine(format.timestamp(),format.json()),
+            transports: [new transports.Console()]
         }),
         new transports.File({
             filename:'./logs/logginfile.log',
             level:'error',
-            format: format.combine(format.timestamp(),format.json())
+            format: format.combine(format.timestamp(),format.json()),
+            transports: [new transports.Console()]
         }),
         new transports.File({
             filename:'./logs/logginfile.log',
             level:'debug',
-            format: format.combine(format.timestamp(),format.json())
+            format: format.combine(format.timestamp(),format.json()),
+            transports: [new transports.Console()]
         }),
         new transports.File({
             filename:'./logs/logginfile.log',
             level:'warn',
-            format: format.combine(format.timestamp(),format.json())
+            format: format.combine(format.timestamp(),format.json()),
+            transports: [new transports.Console()]
         })
     ]
 })

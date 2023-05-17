@@ -16,11 +16,11 @@ telefono.get('/',verificarToken,async(req, resp) =>{
     try {
         const {tels} = await getTelefonos();
         resp.status(200).json(tels)
-        logger.log('info','Peticion para la api uadyfone en ruta telefonos')
-        logger.log('debug','Obtener telefonos') 
+        logger.log('info','Peticion para uadyfone en: ' + req.baseUrl)
+        logger.log('debug','Metodo Obtener telefonos del tipo: '+ req.method + ' , body: ' + JSON.stringify(req.body)+' ,parametros: ' + JSON.stringify(req.params) +  ' , respuesta: ' + JSON.stringify(tels)) 
     } catch (error) {
         resp.status(403).json(error)
-        logger.log('error','No es posible obtener telefonos')
+        logger.log('error','No es posible obtener telefonos' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
@@ -34,12 +34,12 @@ telefono.post('/',verificarToken, async (req,resp) =>{
     try {
         await newTelefono.save()
         resp.status(201).json(newTelefono)
-        logger.log('info','Peticion para la api uadyfone en ruta telefonos')
-        logger.log('debug','Crear telefono')
-
+        logger.log('info','Peticion para uadyfone en:  ' + req.baseUrl)
+        logger.log('debug','Metodo Crear telefono del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+' ,parametros: ' + JSON.stringify(req.params) +  ' , respuesta: ' + JSON.stringify(newTelefono) )
+        
     } catch (error) {
         resp.status(403).json(error)
-        logger.log('error','No es posible crear telefono')
+        logger.log('error','No es posible crear telefono' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
@@ -49,11 +49,11 @@ telefono.get('/:id',verificarToken,async(req,resp) => {
     try {
         const {tel} = await getTelefonoById(req);
         resp.status(200).json(tel.dataValues)
-        logger.log('info','Peticion para la api uadyfone en ruta telefonos')
-        logger.log('debug','Obtener telefono')
+        logger.log('info','Peticion para la uadyfone en: '+ req.baseUrl)
+        logger.log('debug','Metodo Obtener telefono del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+ ' ,parametros: ' + JSON.stringify(req.params) + ' , respuesta: ' + JSON.stringify(tel.dataValues) )
     } catch (error) {
         resp.status(403).json(error)
-        logger.log('error','No es posible obtener telefono')
+        logger.log('error','No es posible obtener telefono' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
@@ -64,11 +64,11 @@ telefono.put('/:id',verificarToken,async(req,resp) => {
         const {tel} = await updateTelefono(req);
         await tel.save();
         resp.status(200).json(tel.dataValues)
-        logger.log('info','Peticion para la api uadyfone en ruta telefonos')
-        logger.log('debug','Actualizar telefono')
+        logger.log('info','Peticion para la api uadyfone en: ' + req.baseUrl)
+        logger.log('debug','Metodo Actualizar telefono del  tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body)+' ,parametros: ' + JSON.stringify(req.params) +  ' , respuesta: ' + JSON.stringify(tel.dataValues) )
     } catch (error) {
         resp.status(403).json(error)
-        logger.log('error','No es posible actualizar telefono')
+        logger.log('error','No es posible actualizar telefono' + ' , body: ' + JSON.stringify(req.body))
     }
 
 
@@ -81,11 +81,11 @@ telefono.delete('/:id',verificarToken,async(req,resp) => {
         await deleteTelefono(req);
 
         resp.status(204).json({message:"elemento borrado correctamente"})
-        logger.log('info','Peticion para la api uadyfone en ruta telefonos')
-        logger.log('debug','Eliminar telefono')
+        logger.log('info','Peticion para la api uadyfone en: '+ req.baseUrl)
+        logger.log('debug','Metodo Eliminar telefono del tipo: ' + req.method + ' , body: ' + JSON.stringify(req.body) + ' ,parametros: ' + JSON.stringify(req.params))
     } catch (error) {
         resp.status(403).json(error)
-        logger.log('error','No es posible eliminar telefono')
+        logger.log('error','No es posible eliminar telefono' + ' , body: ' + JSON.stringify(req.body))
     }
 })
 
