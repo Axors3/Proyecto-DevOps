@@ -1,98 +1,38 @@
-{"level":"info","message":"conneccion success","timestamp":"2023-05-10T21:05:06.111Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-10T21:05:06.112Z"}
-{"level":"error","message":"unable to connect","timestamp":"2023-05-10T21:07:40.923Z"}
-{"level":"error","message":"unable to connect","timestamp":"2023-05-10T21:07:40.924Z"}
-{"level":"error","message":"unable to connect","timestamp":"2023-05-10T21:07:40.925Z"}
-{"level":"error","message":"unable to connect","timestamp":"2023-05-10T21:07:40.925Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-10T21:08:22.989Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-10T21:08:22.991Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-10T21:12:17.298Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-10T21:12:17.300Z"}
-{"level":"info","message":"Peticion para la api uadyfone","timestamp":"2023-05-10T21:13:23.117Z"}
-{"level":"info","message":"Peticion para la api uadyfone","timestamp":"2023-05-10T21:13:23.117Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-10T21:13:23.118Z"}
-{"level":"info","message":"Peticion para la api uadyfone","timestamp":"2023-05-10T21:14:14.749Z"}
-{"level":"info","message":"Peticion para la api uadyfone","timestamp":"2023-05-10T21:14:14.750Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-10T21:14:14.751Z"}
-{"level":"info","message":"Peticion para la api uadyfone","timestamp":"2023-05-10T21:14:26.711Z"}
-{"level":"info","message":"Peticion para la api uadyfone","timestamp":"2023-05-10T21:14:26.711Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-10T21:14:26.711Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-11T00:07:45.877Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-11T00:07:45.893Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:08:11.908Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:08:11.908Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-11T00:08:11.909Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:08:28.802Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:08:28.803Z"}
-{"level":"debug","message":"Obtener usuario","timestamp":"2023-05-11T00:08:28.803Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:08:46.693Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:08:46.693Z"}
-{"level":"debug","message":"Eliminar usuario","timestamp":"2023-05-11T00:08:46.693Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:09:46.766Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:09:46.766Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-11T00:09:46.767Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:10:56.364Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T00:10:56.364Z"}
-{"level":"debug","message":"Registrar usuario","timestamp":"2023-05-11T00:10:56.365Z"}
-{"level":"error","message":"No es posible crear usuario","timestamp":"2023-05-11T00:11:12.034Z"}
-{"level":"error","message":"No es posible crear usuario","timestamp":"2023-05-11T00:11:12.034Z"}
-{"level":"error","message":"No es posible crear usuario","timestamp":"2023-05-11T00:11:12.035Z"}
-{"level":"error","message":"No es posible crear usuario","timestamp":"2023-05-11T00:11:12.035Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-11T01:04:04.679Z"}
-{"level":"info","message":"conneccion success","timestamp":"2023-05-11T01:04:04.685Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:04:58.761Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:04:58.761Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-11T01:04:58.762Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:05:45.762Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:05:45.762Z"}
-{"level":"debug","message":"Obtener usuario","timestamp":"2023-05-11T01:05:45.763Z"}
-{"level":"error","message":"Usuario no encontrado","timestamp":"2023-05-11T01:05:59.184Z"}
-{"level":"error","message":"Usuario no encontrado","timestamp":"2023-05-11T01:05:59.184Z"}
-{"level":"error","message":"Usuario no encontrado","timestamp":"2023-05-11T01:05:59.184Z"}
-{"level":"error","message":"Usuario no encontrado","timestamp":"2023-05-11T01:05:59.185Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:06:12.181Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:06:12.182Z"}
-{"level":"debug","message":"Obtener usuario","timestamp":"2023-05-11T01:06:12.183Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:06:33.240Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:06:33.240Z"}
-{"level":"debug","message":"Eliminar usuario","timestamp":"2023-05-11T01:06:33.240Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:06:52.696Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:06:52.697Z"}
-{"level":"debug","message":"Obtener usuarios","timestamp":"2023-05-11T01:06:52.697Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:08:11.427Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:08:11.427Z"}
-{"level":"debug","message":"Loggear usuario","timestamp":"2023-05-11T01:08:11.427Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:08:27.156Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-11T01:08:27.156Z"}
-{"level":"debug","message":"Loggear usuario","timestamp":"2023-05-11T01:08:27.157Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:08:58.125Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:08:58.126Z"}
-{"level":"debug","message":"Obtener telefonos","timestamp":"2023-05-11T01:08:58.126Z"}
-{"level":"warn","message":"No autorizado","timestamp":"2023-05-11T01:09:08.472Z"}
-{"level":"warn","message":"No autorizado","timestamp":"2023-05-11T01:09:08.472Z"}
-{"level":"warn","message":"No autorizado","timestamp":"2023-05-11T01:09:08.472Z"}
-{"level":"warn","message":"Sin clave de acceso","timestamp":"2023-05-11T01:09:25.300Z"}
-{"level":"warn","message":"Sin clave de acceso","timestamp":"2023-05-11T01:09:25.300Z"}
-{"level":"warn","message":"Sin clave de acceso","timestamp":"2023-05-11T01:09:25.300Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:09:36.787Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:09:36.787Z"}
-{"level":"debug","message":"Obtener telefono","timestamp":"2023-05-11T01:09:36.787Z"}
-{"level":"error","message":"No es posible obtener telefono","timestamp":"2023-05-11T01:09:44.498Z"}
-{"level":"error","message":"No es posible obtener telefono","timestamp":"2023-05-11T01:09:44.498Z"}
-{"level":"error","message":"No es posible obtener telefono","timestamp":"2023-05-11T01:09:44.498Z"}
-{"level":"error","message":"No es posible obtener telefono","timestamp":"2023-05-11T01:09:44.499Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:09:55.128Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:09:55.128Z"}
-{"level":"debug","message":"Obtener telefono","timestamp":"2023-05-11T01:09:55.128Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:10:02.881Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta telefonos","timestamp":"2023-05-11T01:10:02.882Z"}
-{"level":"debug","message":"Eliminar telefono","timestamp":"2023-05-11T01:10:02.882Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta vendedores","timestamp":"2023-05-11T01:10:20.293Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta vendedores","timestamp":"2023-05-11T01:10:20.294Z"}
-{"level":"debug","message":"Obtener vendedores","timestamp":"2023-05-11T01:10:20.294Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta clientes","timestamp":"2023-05-11T01:10:29.343Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta clientes","timestamp":"2023-05-11T01:10:29.343Z"}
-{"level":"debug","message":"Obtener clientes","timestamp":"2023-05-11T01:10:29.343Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta planes","timestamp":"2023-05-11T01:10:42.007Z"}
-{"level":"info","message":"Peticion para la api uadyfone en ruta planes","timestamp":"2023-05-11T01:10:42.007Z"}
-{"level":"debug","message":"Obtener planes","timestamp":"2023-05-11T01:10:42.007Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:24:08.657Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:24:08.661Z"}
+{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-14T08:24:22.143Z"}
+{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-14T08:24:22.144Z"}
+{"accept":"*/*","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-length":"92","content-type":"application/json","host":"localhost:3001","level":"debug","postman-token":"37f9d008-0810-4ed1-8841-a832d038999d","timestamp":"2023-05-14T08:24:22.146Z","user-agent":"PostmanRuntime/7.32.2"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:26:33.953Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:26:33.955Z"}
+{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-14T08:26:39.384Z"}
+{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-14T08:26:39.390Z"}
+{"email":"cansado@gmail.com","level":"debug","password":"cansa","timestamp":"2023-05-14T08:26:39.394Z","username":"cansado"}
+{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-14T08:26:59.223Z"}
+{"level":"info","message":"Peticion para la api uadyfone en ruta usuarios","timestamp":"2023-05-14T08:26:59.224Z"}
+{"level":"debug","timestamp":"2023-05-14T08:26:59.224Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:36:03.750Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:36:03.752Z"}
+{"level":"info","timestamp":"2023-05-14T08:36:11.328Z"}
+{"level":"info","timestamp":"2023-05-14T08:36:11.328Z"}
+{"level":"debug","timestamp":"2023-05-14T08:36:11.328Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:38:23.708Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:38:23.710Z"}
+{"0":"User-Agent","1":"PostmanRuntime/7.32.2","10":"Connection","11":"keep-alive","2":"Accept","3":"*/*","4":"Postman-Token","5":"78e2ca15-7a06-49cd-ab8d-2b71f8d830da","6":"Host","7":"localhost:3001","8":"Accept-Encoding","9":"gzip, deflate, br","level":"info","timestamp":"2023-05-14T08:38:29.248Z"}
+{"0":"User-Agent","1":"PostmanRuntime/7.32.2","10":"Connection","11":"keep-alive","2":"Accept","3":"*/*","4":"Postman-Token","5":"78e2ca15-7a06-49cd-ab8d-2b71f8d830da","6":"Host","7":"localhost:3001","8":"Accept-Encoding","9":"gzip, deflate, br","level":"info","timestamp":"2023-05-14T08:38:29.249Z"}
+{"level":"debug","timestamp":"2023-05-14T08:38:29.251Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:41:01.334Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:41:01.336Z"}
+{"level":"info","message":"/","timestamp":"2023-05-14T08:41:08.095Z"}
+{"level":"info","message":"/","timestamp":"2023-05-14T08:41:08.096Z"}
+{"level":"debug","timestamp":"2023-05-14T08:41:08.096Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:41:43.428Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:41:43.431Z"}
+{"level":"info","timestamp":"2023-05-14T08:41:52.798Z"}
+{"level":"info","timestamp":"2023-05-14T08:41:52.798Z"}
+{"level":"debug","timestamp":"2023-05-14T08:41:52.798Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:43:36.820Z"}
+{"level":"info","message":"conneccion success","timestamp":"2023-05-14T08:43:36.821Z"}
+{"level":"info","message":"/uadyfon/api/usuarios","timestamp":"2023-05-14T08:43:40.078Z"}
+{"level":"info","message":"/uadyfon/api/usuarios","timestamp":"2023-05-14T08:43:40.079Z"}
+{"level":"debug","timestamp":"2023-05-14T08:43:40.079Z"}
