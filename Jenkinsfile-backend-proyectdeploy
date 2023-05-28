@@ -2,12 +2,6 @@ pipeline{
     agent any
 
     stages{
-        stage('stop all containers'){
-            steps{
-                bat 'docker stop $(docker ps -a -q)'
-                
-            }
-        }
         stage('make conteiner'){
             steps{
                 script {
