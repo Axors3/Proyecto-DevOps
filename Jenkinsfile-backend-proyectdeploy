@@ -21,7 +21,7 @@ pipeline{
         stage('deploy conteiner'){
             steps{
                 script{
-                    docker.image(env.IMAGE_NAME).run('--add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001') 
+                    docker.image(env.IMAGE_NAME).run('--name backend --add-host=host.docker.internal:172.17.0.1 -d -it -p 9000:3001') 
                 }
             }
         }
